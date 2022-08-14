@@ -73,8 +73,17 @@
     }
 
     .allProducts .allProBox {
-        width: 30%;
-        margin: 20px 6px;
+        width: 48%;
+        margin: 20px 1%;
         
+    }
+
+    .filter-btns {
+        flex-direction: column;
+    }
+
+    .filter-btns select {
+        width: 90%;
+        margin: 10px 0;
     }
 }
