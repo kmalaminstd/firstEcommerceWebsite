@@ -7,6 +7,13 @@
 
 /* common cssk */
 
+
+
+.activeBtn{
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+}
+
 .clearify{
     content: '';
     clear: both;
@@ -37,18 +44,22 @@ nav{
     position: relative;
 }
 
-#submenu{
+#mainMenu ul{
     display: none;
 }
 
-#mainMenu:hover #submenu{
+#mainMenu ul{
     position: absolute;
-    display: block;
+    display: none;
     background-color: #fff;
     padding: 5px 9px;
 }
 
-#mainMenu:hover #submenu li a{
+#mainMenu ul.show{
+    display: block;
+}
+
+#submenu li a{
     display: block;
     padding: 4px 8px;
 }
@@ -57,7 +68,10 @@ nav{
     background-color: aquamarine;
 }
 
-
+.getBtn{
+    cursor: pointer;
+    outline: none;
+}
 
 nav .menu-nav{
     padding: 12px 0;

@@ -9,6 +9,11 @@ const selectors = {
         const summerSaleBtnElm = document.querySelector('#summerSaleBtn')
         const newInBtnElm = document.querySelector('#newInBtn')
         const tabProductElm = document.querySelector('.productSumm')
+        const allTabBtnElm = document.querySelectorAll('.product-tab button')
+        const allBtnDivElm = document.querySelector('.tab-buttons')
+        const indexNavMainMenuElm = document.querySelector('#mainMenu')
+        const indexnavSubMenuElm = document.querySelector('#submenu')
+        const productBoxElm = document.querySelector('.productBox');
 
         return{
             allProductDiv,
@@ -18,7 +23,12 @@ const selectors = {
             bestSaleBtnElm,
             summerSaleBtnElm,
             newInBtnElm,
-            tabProductElm
+            tabProductElm,
+            allTabBtnElm,
+            allBtnDivElm,
+            indexNavMainMenuElm,
+            indexnavSubMenuElm,
+            productBoxElm
         }
 
     }

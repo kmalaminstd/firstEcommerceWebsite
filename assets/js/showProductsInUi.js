@@ -43,7 +43,7 @@ const showAllProduct = {
 
         const htmlElm = 
         `
-            <div class="allProBox">
+            <div class="id-${elem.id} allProBox">
                 <div class="proImg">
                     <img src="${elem.ProductsImage}" alt="${elem.ProductsName}">
                 </div>

@@ -1,5 +1,28 @@
 import allproducts from "./allproduct.js";
 import selectors from "./allSelectors.js";
+import getId from "./gettingId.js";
+// import { navClickBtn } from "./indexPage.js";
+
+const navClickBtn = {
+    navClick(){
+        const {
+            indexNavMainMenuElm,
+            indexnavSubMenuElm
+        } = selectors.allSelectors()
+
+        indexNavMainMenuElm.addEventListener('click', (e) => {
+            e.preventDefault()
+            console.log(indexNavMainMenuElm);
+            // console.log(indexnavSubMenuElm);
+            indexnavSubMenuElm.classList.toggle('show')
+            
+        })
+        
+    }
+}
+
+navClickBtn.navClick()
+
 
 const womensProduct = {
     
@@ -16,7 +39,7 @@ const womensProduct = {
             if(elem.category === 'women'){
                 // console.log(elem);
                     const htmlElm =      `
-                <div class="allProBox">
+                <div class="id-${elem.id} allProBox">
                     <div class="proImg">
                         <img src="${elem.ProductsImage}" alt="${elem.ProductsName}">
                     </div>
@@ -25,6 +48,7 @@ const womensProduct = {
                         <span id="protype">${elem.ProductsType}</span><br>
                         <span id="proprice"><b>${elem.ProductsPrice}</b></span></p>
                     </div>
+                    <button class="id-${elem.id} getBtn">Details</button>
                 </div>
              `
              womenShoppingPageElm.insertAdjacentHTML('beforeend', htmlElm)
@@ -34,5 +58,20 @@ const womensProduct = {
         })
     }
 }
+
+document.addEventListener('DOMContentLoaded', e => {
+    const productBox = document.querySelectorAll('.getBtn')
+        for( let i = 0 ; i < productBox.length; i++){
+            productBox[i].addEventListener('click', e => {
+                const id = getId(e.target)
+                addedId(id)
+            })
+        }
+})
+
+function addedId(id){
+    localStorage.setItem('ProductId', JSON.stringify(id))
+}
+
 
 womensProduct.womenProduct()
