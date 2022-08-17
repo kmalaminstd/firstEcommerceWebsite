@@ -14,6 +14,12 @@ const selectors = {
         const indexNavMainMenuElm = document.querySelector('#mainMenu')
         const indexnavSubMenuElm = document.querySelector('#submenu')
         const productBoxElm = document.querySelector('.productBox');
+        const cartedProductElm = document.querySelector('.fullCart')
+        // const productCloseBtn = document.querySelectorAll('.')
+        const productsDetPageElm = document.querySelector('.cart-products')
+        const addToCartBtnElm = document.querySelector('#checkOutBtn')
+        const productSizeOption = document.querySelector('#productSize')
+        const productColorOption = document.querySelector('#productColor')
 
         return{
             allProductDiv,
@@ -28,7 +34,12 @@ const selectors = {
             allBtnDivElm,
             indexNavMainMenuElm,
             indexnavSubMenuElm,
-            productBoxElm
+            productBoxElm,
+            cartedProductElm,
+            productsDetPageElm,
+            addToCartBtnElm,
+            productSizeOption,
+            productColorOption
         }
 
     }

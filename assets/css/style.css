@@ -71,6 +71,15 @@ nav{
 .getBtn{
     cursor: pointer;
     outline: none;
+    background-color: rgb(21, 73, 73);
+    padding: 5px 8px;
+    outline: none;
+    border: none;
+    color: #fff;
+}
+
+.getBtn a{
+    color: #fff;
 }
 
 nav .menu-nav{
@@ -579,6 +588,10 @@ form button{
 .carted{
     width: 60%;
     margin: 20px auto;
+}
+
+.fullCart{
+    width: 100%;
 }
 
 .carted h2{

@@ -1,27 +1,9 @@
 import selectors from "./allSelectors.js"
 import allproducts from "./allproduct.js"
 import getId from "./gettingId.js"
-
+import addToCart from "./addProductInCart.js"
 
 import navClickBtn from "./navClick.js"
-
-// const navClickBtn = {
-//     navClick(){
-//         const {
-//             indexNavMainMenuElm,
-//             indexnavSubMenuElm
-//         } = selectors.allSelectors()
-
-//         indexNavMainMenuElm.addEventListener('click', (e) => {
-//             e.preventDefault()
-//             console.log(indexNavMainMenuElm);
-//             indexnavSubMenuElm.classList.toggle('show')
-            
-//         })
-        
-//     }
-// }
-
 
 
 const tab = {
@@ -120,25 +102,50 @@ const showTabProduct = {
                         <button class="id-${elem.id} getBtn">Get it now</button>
                 </div>
             `
-            // console.log(tabProductElm);
-
+          
             tabProductElm.insertAdjacentHTML('beforeend', htmlElm)
-            
+            buttonDisabled(document.querySelectorAll('.getBtn'))
         }
     }
 
+
     document.addEventListener('DOMContentLoaded', e => {
+
         const productBox = document.querySelectorAll('.getBtn')
+        // console.log();
         for( let i = 0 ; i < productBox.length; i++){
             productBox[i].addEventListener('click', e => {
+                e.preventDefault()
+                window.location.replace('productsDetails.html')
+                productBox[i].textContent = 'Added'
+                productBox[i].style.cursor = 'not-allowed'
+                productBox[i].style.backgroundColor = 'lightgray'
+                productBox[i].setAttribute('disabled', '')
                 const id = getId(e.target)
-                addedId(id)
+                addToCart(id)
             })
         }
     })
 
-    function addedId(id){
-        localStorage.setItem('ProductId', JSON.stringify(id))
+
+    function buttonDisabled(elem){
+        let idFromLocalStorage = ''
+        if(localStorage.getItem('productId')){
+            idFromLocalStorage = JSON.parse(localStorage.getItem('productId'))
+        }
+            for(let i = 0; i < elem.length; i++){
+                let buttonDisId = elem[i].classList[0].split('-')[1]
+                for(let j = 0; j < idFromLocalStorage.length; j++){
+                    // console.log(idFromLocalStorage[j]);
+                    if(buttonDisId === idFromLocalStorage[j]){
+                        // console.log(elem[i]);
+                        elem[i].textContent = 'Added'
+                        elem[i].style.cursor = 'not-allowed'
+                        elem[i].style.backgroundColor = 'lightgray'
+                        elem[i].setAttribute('disabled', '')
+                    }
+                }
+            }   
     }
 
 
