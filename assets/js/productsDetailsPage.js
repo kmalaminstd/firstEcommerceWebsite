@@ -83,6 +83,7 @@ for(let i = 0; i < idFromLocalStorage.length; i++){
             document.querySelector('#addCartBtn').addEventListener('click', () => {
                 productAddToCartArr(elem, productColor, productSize)
                 alert('Product Added')
+                window.location.replace('cartPage.html')
                 // const proBx = document.querySelectorAll('.allProBox')
                 // window.location.replace('allProducts.html')
             })

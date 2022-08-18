@@ -1,5 +1,7 @@
 import selectors from "./allSelectors.js"
 import allproducts from "./allproduct.js"
+import getId from "./gettingId.js"
+import addToCart from "./addProductInCart.js"
 
 const fetchingproduct = {
     fetching (){
@@ -8,6 +10,8 @@ const fetchingproduct = {
         })
     }
 }
+
+let isFunction = false
 
 const filterProduct = {
     filterSystem(){
@@ -52,10 +56,33 @@ const showAllProduct = {
                     <span id="protype">${elem.ProductsType}</span><br>
                     <span id="proprice"><b>${elem.ProductsPrice}</b></span></p>
                 </div>
+                <button class="id-${elem.id} getBtn">Get Now</button>
             </div>
         `
 
         allProductDiv.insertAdjacentHTML('beforeend', htmlElm)
+
+        
+
+        const AllGetBtn = document.querySelectorAll('.getBtn')
+        for(let i = 0 ; i < AllGetBtn.length; i++){
+            AllGetBtn[i].addEventListener('click', (e) => {
+                // const proId = AllGetBtn[i].classList[0].split('-')[1]
+                e.preventDefault()
+                window.location.replace('productsDetails.html')
+                AllGetBtn[i].textContent = 'Added'
+                AllGetBtn[i].style.cursor = 'not-allowed'
+                AllGetBtn[i].style.backgroundColor = 'lightgray'
+                AllGetBtn[i].setAttribute('disabled', '')
+                const id = getId(e.target)
+                // addToCart(id)
+                if(isFunction === false){
+                    addToCart(id)
+                    isFunction = true
+                }
+                
+            })
+        }
     }
 }
 

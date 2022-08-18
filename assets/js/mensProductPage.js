@@ -31,6 +31,7 @@ const womensProduct = {
                 </div>
              `
              mensShoppingPageElm.insertAdjacentHTML('beforeend', htmlElm)
+             console.log(mensShoppingPageElm);
             }
             
             
@@ -43,16 +44,15 @@ document.addEventListener('DOMContentLoaded', e => {
     for( let i = 0 ; i < productBox.length; i++){
             productBox[i].addEventListener('click', e => {
                 const id = getId(e.target)
-                addedId(id)
-                
+                addedId(id) 
         })
     }
 })
 
-function getId(){
-    const prodId = localStorage.getItem('ProductId')
-    return prodId
-}
+// function getId(){
+//     const prodId = localStorage.getItem('ProductId')
+//     return prodId
+// }
 
 function addedId(id){
     localStorage.setItem('ProductId', JSON.stringify(id))
